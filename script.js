@@ -66,12 +66,12 @@ btnNew.addEventListener('click', () => {
     scores[0] = 0; scores[1] = 1;
     activePlayer = 0;
     score = 0;
-    document.getElementById('current--0').textContent = 0;
-    document.getElementById('current--1').textContent = 0;
+    current0Element.textContent = 0;
+    current1Element.textContent = 0;
     document.querySelector('.player--0').className = 'player player--0 player--active';
     document.querySelector('.player--1').className = 'player player--1';
-    document.getElementById('score--0').textContent = 0;
-    document.getElementById('score--1').textContent = 0;
+    score0Element.textContent = 0;
+    score1Element.textContent = 0;
     document.getElementById('name--0').textContent = 'Player 1';
     document.getElementById('name--1').textContent = 'Player 2';
     btnRoll.classList.remove('hidden');
