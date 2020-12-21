@@ -99,7 +99,6 @@ main {
   font-size: 3.5rem;
 }
 
-/* ABSOLUTE POSITIONED ELEMENTS */
 .btn {
   position: absolute;
   left: 50%;
@@ -133,10 +132,10 @@ main {
   top: 4rem;
 }
 .btn--roll {
-  top: 39.3rem;
+  top: 36.3rem;
 }
 .btn--hold {
-  top: 46.1rem;
+  top: 43.1rem;
 }
 
 .btn:active {
@@ -168,4 +167,24 @@ main {
 
 .hidden {
   display: none;
+}
+
+.input {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem .5rem;
+  font-size: 1.8rem;
+  color: inherit;
+  font-family: inherit;
+  top: 51rem;
+  border: none;
+  text-align: center;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, .1);
+  transition: all .15s;
+  opacity: .9;
+}
+
+.input:focus {
+  outline: none;
 }

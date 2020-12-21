@@ -11,7 +11,7 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
-let gameOver, activePlayer, score, scores;
+let gameOver, activePlayer, score, scores, winningScore, inputValidation, input;
 
 init();
 
@@ -33,7 +33,7 @@ btnHold.addEventListener('click', () => {
    if(!gameOver) {
        scores[activePlayer] += score;
        document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
-       if (scores[activePlayer] >= 100) {
+       if (scores[activePlayer] >= winningScore) {
            gameOver = true;
            document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
            document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
@@ -49,7 +49,24 @@ btnHold.addEventListener('click', () => {
 
 btnNew.addEventListener('click', init);
 
+input.addEventListener('focusout', () => {
+   const inputValue = Number(document.querySelector('.input').value);
+   if(inputValue <= 0) {
+       alert('Winning score cannot be 0 and below or empty!');
+       input.value = 100;
+   } else if(inputValue !== inputValidation) {
+       alert('New winning score will be applied on new game!');
+   }
+});
+
 function init() {
+    input = document.querySelector('.input');
+    inputValidation = Number(input.value);
+    if(inputValidation) {
+        winningScore = inputValidation;
+    } else {
+        winningScore = 100;
+    }
     scores = [0, 0];
     score = 0;
     activePlayer = 0;
